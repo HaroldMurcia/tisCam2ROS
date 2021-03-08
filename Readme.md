@@ -8,7 +8,9 @@ This repository is an attempt to bring the data from a TheImagingSource DFM 27UR
 
 
 <a name="hardware"/>
+
 ## 1. Hardware
+
 USB 3.0 RGB BOARD CAMERA: [The Imaging Source DFM 27UR0135-ML](https://www.theimagingsource.com/products/board-cameras/usb-3.0-color/dfm27ur0135ml/)
 * 1/3 inch On Semiconductor CMOS sensor (AR0135)
 * 1,280×960 (1.2 MP), up to 60 fps
@@ -126,7 +128,9 @@ $ gst-launch-1.0 tcambin device=/dev/video0 ! video/x-raw, width=1280, height=96
 ```
 
 <a name="how2install"/>
+
 ## 2. How to install
+
 Install opencv2
 ```console
 $ sudo apt update
@@ -157,7 +161,9 @@ $ catkin_make
 ```
 
 <a name="how2use"/>
+
 ## 3. How to use
+
 **Todo**:
 * To find a configuration that allows the use of true colors and 60 FPS sample rate:
     * Option 1: 50 FPS, with color distortion "VideoCapture cap("v4l2src device=/dev/video6 ! video/x-bayer, format=(string)grbg, width=(int)1280,height=(int)960, framerate=(fraction)60/1  ! bayer2rgb ! videoconvert  ! appsink", CAP_GSTREAMER);"
