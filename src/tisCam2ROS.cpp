@@ -53,7 +53,7 @@ int main(int argc, char *argv[]){
     ROS_INFO_STREAM("\n\t video parameter = v4l2src");
   }else{
     ROS_INFO_STREAM("\n\t video parameter tcambin is default");
-    camSet = "tcambin serial="+serial_param+" ! video/x-raw, width=1280, height=960, framerate=60/1 ! videoconvert ! avimux ! filesink name=fsink";
+    camSet = "tcambin serial="+serial_param+" ! video/x-raw, width=1280, height=960, framerate=60/1 ! videoconvert ! appsink";
   }
   ROS_INFO("Camset: %s",camSet.c_str());
   VideoCapture cap(camSet, CAP_GSTREAMER);
