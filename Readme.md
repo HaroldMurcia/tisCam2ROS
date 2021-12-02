@@ -119,7 +119,7 @@ Format Video Capture:
 	Transfer Function : Default (maps to Rec. 709)
 	YCbCr/HSV Encoding: Default (maps to ITU-R 601)
 	Quantization      : Default (maps to Full Range)
-	Flags             : 
+	Flags             :
 ```
 Test VideoDevice:
 ```console
@@ -145,18 +145,24 @@ $ sudo apt install build-essential cmake git pkg-config libgtk-3-dev \
 $ sudo apt-get install ros-melodic-video-stream-opencv
 $ sudo apt install ffmpeg
 ```
-Install [TIS Camera](https://www.theimagingsource.com/documentation/tiscamera/tutorial.html): 
+Install [TIS Camera](https://www.theimagingsource.com/documentation/tiscamera/tutorial.html):
 ```console
 $ git clone https://github.com/TheImagingSource/tiscamera
 $ cd tiscamera
-$ mkdir build
 $ ./scripts/dependency-manager install
+$ mkdir build
+$ cd build
+$ # With ARAVIS:
+$ cmake -DBUILD_ARAVIS=ON ..
+$ # Without ARAVIS
+$ cmake -DBUILD_ARAVIS=OFF ..
 $ make -j
+$ sudo make install
 ```
 Clone repo in ~/catkin_ws/src
 ```console
 $ git clone https://github.com/HaroldMurcia/tisCam2ROS
-$ cd ../..
+$ cd ..
 $ catkin_make
 ```
 

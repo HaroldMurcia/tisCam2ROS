@@ -49,11 +49,11 @@ int main(int argc, char *argv[]){
     serial_param=serialParameter.c_str();
   }
   if(videoParameter.compare("v4l2src")==0){
-    camSet = "v4l2src device="+device_param+" ! video/x-bayer, format=(string)grbg, width=(int)1280,height=(int)960, framerate=(fraction)60/1 ! bayer2rgb ! videoconvert ! appsink";
+    camSet = "v4l2src device="+device_param+" ! video/x-bayer, format=(string)grbg, width=(int)1280,height=(int)960, framerate=(fraction)30/1 ! bayer2rgb ! videoconvert ! appsink";
     ROS_INFO_STREAM("\n\t video parameter = v4l2src");
   }else{
     ROS_INFO_STREAM("\n\t video parameter tcambin is default");
-    camSet = "tcambin serial="+serial_param+" ! video/x-raw, width=1280, height=960, framerate=60/1 ! videoconvert ! appsink";
+    camSet = "tcambin serial="+serial_param+" ! video/x-raw, width=1280, height=960, framerate=30/1 ! videoconvert ! appsink";
   }
   ROS_INFO("Camset: %s",camSet.c_str());
   VideoCapture cap(camSet, CAP_GSTREAMER);
